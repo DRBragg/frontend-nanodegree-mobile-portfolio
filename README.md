@@ -61,4 +61,8 @@ I learned a lot from this project and applied some of it already to my work.
 * Deferred CSS and added a script to handle updating the DOM after load
 * Minified HTML, CSS, and JS.  Will be looking into Grunt to do this for me in the future
 * Optimize the Pizza Generator code to obtain 60FPS. In the future I'd like to make the functions more human readable
+<<<<<<< HEAD
 * Compressed Images to enhance load times
+=======
+* Compressed Images to inhance load times
+>>>>>>> e3a8c6ce8d8ff586c9e60582a2c1005833dff168
