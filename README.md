@@ -32,7 +32,7 @@ Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
 #### Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
@@ -53,3 +53,12 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+
+### Result
+
+I learned a lot from this project and applied some of it already to my work.
+
+* Deferred CSS and added a script to handle updating the DOM after load
+* Minified HTML, CSS, and JS.  Will be looking into Grunt to do this for me in the future
+* Optimize the Pizza Generator code to obtain 60FPS. In the future I'd like to make the functions more human readable
+* Compressed Images to enhance load times
