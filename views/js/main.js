@@ -420,7 +420,7 @@ var resizePizzas = function(size) {
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
-    var windowWidth = document.getElementById("randomPizzas").offsetWidth;
+    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
 
     // Changes the slider value to a percent width
@@ -502,9 +502,10 @@ function updatePositions() {
   var items = document.querySelectorAll('.mover');
   // document.body.scrollTop is no longer supported in Chrome.
   var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  var phase = Math.sin((scrollTop / 1250) + (i % 5));
+  var phase = Math.sin(scrollTop / 1250);
   for (var i = 0; i < items.length; i++) {
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    newPhase = phase + (i % 5);
+    items[i].style.left = items[i].basicLeft + 100 * newPhase + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -525,9 +526,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   let pizza = document.querySelector("#movingPizzas1")
-  for (var i = 0; i < 56; i++) {
+  for (var i = 0; i < 50; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
+
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
