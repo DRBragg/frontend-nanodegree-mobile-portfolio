@@ -445,7 +445,7 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    let randomPizzaContainer = document.querySelectorAll('.randomPizzaContainer');
+    let randomPizzaContainer = document.getElementsByClassName('randomPizzaContainer');
     let l = randomPizzaContainer.length;
     let dx = determineDx(randomPizzaContainer[0], size);
     let newWidth = randomPizzaContainer[0].offsetWidth + dx + 'px';
@@ -502,10 +502,12 @@ function updatePositions() {
   var items = document.querySelectorAll('.mover');
   // document.body.scrollTop is no longer supported in Chrome.
   var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  var phase = Math.sin(scrollTop / 1250);
+  let phases = []
+  for (var i = 0; i < 5; i++) {
+    phases.push(Math.sin(scrollTop / 1250 + i) * 100);
+  }
   for (var i = 0; i < items.length; i++) {
-    newPhase = phase + (i % 5);
-    items[i].style.left = items[i].basicLeft + 100 * newPhase + 'px';
+    items[i].style.left = items[i].basicLeft + phases[i%5] + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -525,11 +527,12 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  let pizza = document.querySelector("#movingPizzas1")
-  for (var i = 0; i < 50; i++) {
+  let height = window.innerHeight;
+  let pizzaCount = height / s * cols
+  let pizza = document.querySelector("#movingPizzas1");
+  for (var i = 0; i < pizzaCount; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
-
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
